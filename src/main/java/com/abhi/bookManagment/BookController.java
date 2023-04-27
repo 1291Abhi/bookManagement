@@ -3,6 +3,7 @@ package com.abhi.bookManagment;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -28,6 +29,11 @@ public class BookController {
     @GetMapping("/find-books/{id}")
     public Book findBookByPath(@PathVariable Integer id){
         return bookMap.get(id);
+    }
+    @GetMapping("/find-all-books")
+    public List<Book> findAllBooks(){
+        return bookMap.values().stream().toList();
+
     }
 
     @PutMapping("/update-book/{id}")
