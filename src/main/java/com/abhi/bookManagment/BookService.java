@@ -1,11 +1,15 @@
 package com.abhi.bookManagment;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-
+@Service
 public class BookService {
-    private BookRepository bookRepository=new BookRepository();
+    @Autowired
+    private BookRepository bookRepository;
     public Boolean addBook(Book book) throws BookAlreadyExistsException{
         Optional<Book> bookOptional=bookRepository.getById(book.getBookID());
         if(bookOptional.isPresent()) {

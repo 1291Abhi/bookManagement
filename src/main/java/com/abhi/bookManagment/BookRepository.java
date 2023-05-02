@@ -1,10 +1,12 @@
 package com.abhi.bookManagment;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
+@Repository
 public class BookRepository {
     private Map<Integer,Book> bookMap=new HashMap<>();
 

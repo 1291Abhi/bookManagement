@@ -1,5 +1,6 @@
 package com.abhi.bookManagment;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +11,8 @@ import java.util.*;
 @RestController
 
 public class BookController {
-    private BookService bookService=new BookService();
+    @Autowired
+    private BookService bookService;
     @PostMapping("/add-book")
     public ResponseEntity addBook(@RequestBody Book book){
         try{
